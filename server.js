@@ -3,7 +3,11 @@ const helmet = require("helmet");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const setupGlobalMiddleware = require("./setup-middleware");
+
 const server = express();
+
+setupGlobalMiddleware(server);
 
 // TODO: import routers here
 const authRouter = require("./routers/authRouter");
