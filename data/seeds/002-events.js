@@ -25,6 +25,27 @@ exports.seed = function(knex) {
           location: "College Station",
           event_date: "2019-12-25",
           description: "This event is gonna be YUGEEEE!!!"
+        },
+        {
+          name: "The Little Event 1",
+          owner_id: 2,
+          location: "College Station",
+          event_date: "2019-09-25",
+          description: "This event is soooo litle!"
+        },
+        {
+          name: "Community Grass Clipping Party",
+          owner_id: 4,
+          location: "College Station",
+          event_date: "2019-08-21",
+          description: "So much grass to cut, someone help!"
+        },
+        {
+          name: "Pond Rebuild",
+          owner_id: 3,
+          location: "College Station",
+          event_date: "2019-08-26",
+          description: "Pond is falling down, can someone assist with its rebuild?"
         }
       ]);
     });
