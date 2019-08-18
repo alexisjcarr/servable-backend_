@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Ratings = require("../data/models/ratingsModel");
 
+const protected = require("../middleware/restricted-middleware");
+
 // TODO: make model for querying ratings db
 
 router.get("/all", async (req, res) => {
@@ -21,7 +23,9 @@ router.get("/:id", async (req, res) => {
     const ratings = await Ratings.findRatingsByUser(id);
     res.json(ratings);
   } catch (err) {
-    res.status(500).json(err.message);
+    res.status(500).json({
+      message: "Couldn't get ratings"
+    });
   }
 });
 

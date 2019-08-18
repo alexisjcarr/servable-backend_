@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const router = require("express").Router();
 
-const Users = require("../data/models");
+const Users = require("../data/models/usersModel");
 
 router.post("/register", async (req, res) => {
   let user = req.body;
@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
     console.log("user: ", user);
 
     if (user && bcrypt.compareSync(password, user.password)) {
-      // res.status(200).json({ message: `Welcome ${user.username}!` });
+      res.status(200).json({ message: `Welcome ${user.username}!` });
       req.session.username = user.username;
     } else {
       res.status(401).json({ message: "Invalid Credentials" });
