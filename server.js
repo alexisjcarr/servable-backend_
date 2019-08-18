@@ -11,6 +11,7 @@ setupGlobalMiddleware(server);
 
 // TODO: import routers here
 const authRouter = require("./routers/authRouter");
+const ratingsRouter = require("./routers/ratingsRouter");
 
 server.use(helmet());
 server.use(bodyParser.json());
@@ -24,5 +25,6 @@ server.get("/", (req, res) => {
 
 // TODO: Implement routers here
 server.use("/api/auth", authRouter);
+server.use("api/ratings", ratingsRouter);
 
 module.exports = server;
