@@ -1,7 +1,7 @@
 const db = require("../dbConfig");
 
 module.exports = {
-  //   findRatingsByUser
+  findRatingsByUser,
   findAllRatings
 };
 
@@ -11,4 +11,11 @@ async function findAllRatings() {
   return await db("ratings")
     .join("users", "users.id", "ratings.user_id")
     .select("users.username", "ratings.rating");
+}
+
+async function findRatingsByUser(id) {
+  return await db("ratings")
+    .join("users", "users.id", "ratings.user_id")
+    .select("users.username", "ratings.rating")
+    .where("users.id", id);
 }
